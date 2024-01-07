@@ -92,6 +92,22 @@ const pokemonsFiltered = computed(() => {
 </script>
 
 <template>
+  <Head v-if="selectedPokemon">
+    <Title>{{ selectedPokemon?.nom }} - Détails du Pokémon</Title>
+    <Meta name="description"
+      :content="`Découvrez des détails sur ${selectedPokemon?.nom}: ${selectedPokemon?.description}`" />
+    <Meta property="og:title" :content="`${selectedPokemon?.nom} - Détails du Pokémon`" />
+    <Meta property="og:description"
+      :content="`Découvrez des détails sur ${selectedPokemon?.nom}: ${selectedPokemon?.description}`" />
+    <Meta property="og:image" :content="selectedPokemon?.image.url" />
+    <Meta property="og:type" content="website" />
+    <Meta property="og:locale" content="fr_FR" />
+    <Meta name="twitter:card" content="summary_large_image" />
+    <Meta name="twitter:title" :content="`${selectedPokemon?.nom} - Détails du Pokémon`" />
+    <Meta name="twitter:description"
+      :content="`Découvrez des détails sur ${selectedPokemon?.nom}: ${selectedPokemon?.description}`" />
+    <Meta name="twitter:image" :content="selectedPokemon?.image.url" />
+  </Head>
   <div class="flex">
     <div class="bg-red-500 w-1/2 p-5 rounded-l-lg h-[82vh]">
       <div class="h-[100%]">
@@ -161,5 +177,4 @@ const pokemonsFiltered = computed(() => {
         </ul>
       </div>
     </div>
-  </div>
-</template>
+</div></template>
